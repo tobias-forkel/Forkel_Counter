@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Forkel Counter
+ *
+ * @category    Forkel
+ * @package     Forkel_Counter
+ * @copyright   Copyright (c) 2016 Tobias Forkel (http://www.tobiasforkel.de)
+ * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+ -->
+
+<layout>
+
+    <forkel_counter_css>
+        <reference name="head">
+            <action method="addCss" ifconfig="forkel_counter/css/default">
+                <stylesheet>css/forkel/counter/counter.css</stylesheet>
+            </action>
+            <action method="addLinkRel" ifconfig="forkel_counter/css/font_awesome">
+                <rel>stylesheet</rel>
+                <href>https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css</href>
+            </action>
+        </reference>
+    </forkel_counter_css>
+
+    <forkel_counter_js>
+        <reference name="head">
+            <action method="addJs" ifconfig="forkel_counter/js/jquery"><script>community/forkel/counter/jquery.load.min.js</script></action>
+            <action method="addJs" ifconfig="forkel_counter/js/waypoints"><script>community/forkel/counter/jquery.waypoints.min.4.0.0.js</script></action>
+            <action method="addJs"><script>community/forkel/counter/jquery.counterup.min.custom.js</script></action>
+        </reference>
+        <reference name="head">
+            <action method="addJs"><script>community/forkel/counter/init.min.js</script></action>
+        </reference>
+    </forkel_counter_js>
+
+    <forkel_counter>
+        <reference name="right">
+            <block type="forkel_counter/frontend_counter" name="forkel_counter_frontend_counter" after="catalog.compare.sidebar">
+                <action method="setData">
+                    <name>icon</name><value></value>
+                </action>
+                <action method="setData">
+                    <name>prefix</name><value>$</value>
+                </action>
+                <action method="setData">
+                    <name>from</name><value>0</value>
+                </action>
+                <action method="setData">
+                    <name>to</name><value>1,323</value>
+                </action>
+                <action method="setData">
+                    <name>time</name><value>2000</value>
+                </action>
+                <action method="setData">
+                    <name>delay</name><value>20</value>
+                </action>
+            </block>
+        </reference>
+    </forkel_counter>
+
+</layout>
+
