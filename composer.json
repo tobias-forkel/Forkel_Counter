@@ -1,0 +1,13 @@
+{
+    "name": "tobias-forkel/forkel_counter",
+    "type": "magento-module",
+    "license": "OSL",
+    "homepage": "https://github.com/tobias-forkel/Forkel_Counter",
+    "description": "Add a customizable counter that allows you to count up to any numeric.",
+    "authors": [
+        {
+            "name": "Tobias Forkel",
+            "email": "tobias.forkel@gmx.com"
+        }
+    ]
+}

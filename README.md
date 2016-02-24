@@ -1,8 +1,14 @@
 # Forkel Counter
-Add a customizable counter that allows you to count up to any numeric value. With a specific option like `collection:catalog/product,from:-30 days,to:now` you can get the size of a collection. This module is using a [custom version](https://github.com/tobias-forkel/Counter-Up/tree/feature/counter_settings_from_data_attribute) of [Counter-Up](https://github.com/bfintal/Counter-Up) and the latest version of [Waypoints](http://imakewebthings.com/waypoints) and [jQuery](https://jquery.com/download/).
+Add a customizable counter that allows you to count up to any numeric value. With a specific option like `collection:catalog/product,from:-30 days,to:now` you can get the size of a predefined collection. This module is using a [custom version](https://github.com/tobias-forkel/Counter-Up/tree/feature/counter_settings_from_data_attribute) of [Counter-Up](https://github.com/bfintal/Counter-Up) and the latest version of [Waypoints](http://imakewebthings.com/waypoints) and [jQuery](https://jquery.com/download/).
 
+### Front-End
 ![Forkel Counter - Frontend](http://www.tobiasforkel.de/public/magento/forkel_counter/version/1.0/screenshots/frontend/frontend_cms.jpg)
 
+It will display a simple message in case of issues with other JavaScript libraries.
+
+![Forkel Counter - Frontend](http://www.tobiasforkel.de/public/magento/forkel_counter/version/1.0/screenshots/frontend/frontend_fallback.jpg)
+
+### Admin Panel
 ![Forkel Counter - Backend](http://www.tobiasforkel.de/public/magento/forkel_counter/version/1.0/screenshots/backend/backend_system.jpg)
 
 ## Installation
@@ -33,6 +39,7 @@ time | Numeric value | Duration between start and stop in milliseconds
 delay | Numeric value | Delay per number in milliseconds
 prefix | Custom string | At the beginning of the counter
 icon | Class name | Set a custom icon based on `Font Awesome`
+className | Class name | Custom class name for each counter for your custom styles
 
 The option `to` allows you to get the size of a collection. Following collections are available to use.
 
@@ -95,7 +102,7 @@ Please see the examples how to setup a counter in CMS pages or XML files.
 ```
 
 ## Support
-If you have any issues with this extension, open an issue on [Github](https://github.com/tobias-forkel/Forkel_Counter/issues).
+If you have any issues with this extension, open an issue on [Github](https://github.com/tobias-forkel/Forkel_Counter/issues). If you need a custom build, please contact me on http://www.tobiasforkel.de.
 
 ## Contributing
 1. Fork it!
@@ -104,9 +111,12 @@ If you have any issues with this extension, open an issue on [Github](https://gi
 4. Push to the branch: `git push origin my-new-feature`.
 5. Submit a pull request.
 
-If you need a custom build, please contact me on http://www.tobiasforkel.de. Follow me on [GitHub](https://github.com/tobias-forkel) and [Twitter](https://twitter.com/tobiasforkel).
+Follow me on [GitHub](https://github.com/tobias-forkel) and [Twitter](https://twitter.com/tobiasforkel).
 
 ## History
+===== 1.0.1 =====
+* Added optional option `className` for each counter block
+
 ===== 1.0.0 =====
 * Initial version of this module
 
