@@ -1,0 +1,6 @@
+src/js/community/forkel/counter js/community/forkel/counter
+src/skin/frontend/base/default/css/forkel/counter skin/frontend/base/default/css/forkel/counter
+src/app/code/community/Forkel/Counter app/code/community/Forkel/Counter
+src/app/design/frontend/base/default/layout/forkel/counter.xml app/design/frontend/base/default/layout/forkel/counter.xml
+src/app/design/frontend/base/default/template/forkel/counter app/design/frontend/base/default/template/forkel/counter
+src/app/etc/modules/Forkel_Counter.xml app/etc/modules/Forkel_Counter.xml

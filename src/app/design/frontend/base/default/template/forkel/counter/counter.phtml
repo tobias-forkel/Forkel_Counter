@@ -9,7 +9,7 @@
  */
 ?>
 
-<span class="forkel_counter">
+<span class="forkel_counter <?php echo ($className = $this->getData('className')) ? $className : ''; ?>">
 
     <?php if ($icon = $this->getData('icon')): ?>
         <span class="fa <?php echo $icon; ?>"></span>
