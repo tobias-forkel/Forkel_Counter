@@ -1,10 +1,10 @@
 # Forkel Counter
-Add a customizable counter that allows you to count up or down from any numeric value. With a specific option like `collection:catalog/product,from:-30 days,to:now` you can get the size of a predefined collection. This module is using the class [CountUp](https://inorganik.github.io/countUp.js) that works without a JavaScript framework.
+Add a customizable counter that allows you to count up or down from any number. With a specific option like `collection:catalog/product,from:-30 days,to:now` you can get the size of a predefined collection. This module is using the class [CountUp](https://inorganik.github.io/countUp.js) that works without a JavaScript framework.
 
 ### Front-End
-![Forkel Counter - Frontend](http://www.tobiasforkel.de/public/magento/forkel_counter/version/1.0/screenshots/frontend/frontend_cms.jpg)
+![Forkel Counter - Frontend](http://www.tobiasforkel.de/public/magento/forkel_counter/version/1.0/screenshots/frontend/frontend_cms.gif)
 
-A fallback procedure will display a warning message in case of JavaScript issues. You can remove the warning message in `app/design/frontend/base/default/template/forkel/counter/counter.phtml`.
+A javascript fallback will display a warning message in case of JavaScript issues.
 
 ![Forkel Counter - Frontend](http://www.tobiasforkel.de/public/magento/forkel_counter/version/1.0/screenshots/frontend/frontend_fallback.jpg)
 
@@ -23,15 +23,16 @@ A fallback procedure will display a warning message in case of JavaScript issues
 * Display a `Front Awesome` icon. 
 * Display a custom prefix like `$` or `€`.
 * Display a custom suffix.
-* Set a numeric ( `1` or `99` ) from where the counter should start.
-* Set a numeric ( `290` or `10000` ) where the counter should stop.
-* Set the number of decimals.
+* Set a number ( `-99` or `99` ) from where the counter should start.
+* Set a number ( `290` or `10000` ) where the counter should stop.
+* Set the amount of decimals.
 * Set the counter duration in seconds.
 * Override default options such as `{ "separator" : ",", "decimal" : ".", "useEasing" : true, "useGrouping" : true }`
 * Count rows from collections like `sales/order` or `catalog/product` in combination with a date filter. For example:
 ```html
 collection:customer/customer,from:-30 days,to:now
 ```
+* Customizable in `app/design/frontend/base/default/template/forkel/counter/counter.phtml`.
 
 ```html
 collection:sales/order,from:March 12 2015,to:April 12 2015
@@ -45,9 +46,9 @@ Option | Value | Description
 icon | String | Display any icon from [Font Awesome](https://fortawesome.github.io/Font-Awesome/icons/).
 prefix | String | Display a custom prefix like `$` or `€`.
 suffix | String | Display a custom suffix.
-from | Numeric | Set a numeric ( `1` or `99` ) from where the counter should start.
-to `*` | Numeric |  Set a numeric ( `290` or `10000` ) where the counter should stop.
-decimals | Numeric  | Set the number of decimals.
+from | Number | Set a number ( `-50` or `99` ) from where the counter should start.
+to `*` | Number |  Set a number ( `290` or `10000` ) where the counter should stop.
+decimals | Number  | Set the amount of decimals.
 duration | Decimal  | Set the counter duration in seconds.
 options | JSON  | Override [countUp](https://github.com/inorganik/CountUp.js) options such as `{ "separator" : ",", "decimal" : ".", "useEasing" : true, "useGrouping" : true }`
 
@@ -165,8 +166,7 @@ Follow me on [GitHub](https://github.com/tobias-forkel) and [Twitter](https://tw
 * Removed [Waypoints](http://imakewebthings.com/waypoints/). Please add it to your theme manually.
 * Added new parameter `decimals` and `duration`.
 * Added default counter options in `System > Forkel Counter > General`
-* Added new parameter `options` in `counter.xml`
-* Added new parameter `options` to `{{block type="forkel_counter/frontend_counter" name="forkel_counter" from="999" to="1499" decimals="0" duration="10" options='{"useEasing":true}'}}` that allows you to set different counter settings for each counter.
+* Added new parameter `options` that allows you to set different [CountUp](https://inorganik.github.io/countUp.js) settings for each counter.
 
 ===== 1.0.1 =====
 * Added optional option `className` for each counter block
