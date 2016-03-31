@@ -47,7 +47,7 @@
                             <show_in_store>1</show_in_store>
                             <comment><![CDATA[
                                 <p>
-                                    <div>Set default options for the <i>countUp</i> plugin.</div>
+                                    <div>Set default options for the <a href="https://inorganik.github.io/countUp.js/" target="_blank">countUp</a> plugin.</div>
                                 </p>
                             ]]></comment>
                         </options>
@@ -89,7 +89,7 @@
                             <show_in_store>1</show_in_store>
                             <comment><![CDATA[
                                 <p>
-                                    <div>Load Font Awesome from CDN in front-end. Disable if it's already loaded in your theme.</div>
+                                    <div>Load <a href="https://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a> from CDN in front-end. Disable if it's already loaded in your theme.</div>
                                 </p>
                             ]]></comment>
                         </font_awesome>
