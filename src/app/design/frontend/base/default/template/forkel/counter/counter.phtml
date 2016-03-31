@@ -11,22 +11,26 @@
 
 <span class="forkel_counter <?php echo ($className = $this->getData('className')) ? $className : ''; ?>">
 
-    <?php if ($icon = $this->getData('icon')): ?>
+    <?php if ($icon = $this->getIcon()): ?>
         <span class="fa <?php echo $icon; ?>"></span>
     <?php endif; ?>
 
-    <?php if ($prefix = $this->getData('prefix')): ?>
+    <?php if ($prefix = $this->getPrefix()): ?>
         <span class="prefix"><?php echo $prefix; ?></span>
     <?php endif; ?>
 
-    <?php if ($numeric = $this->getNumeric()): ?>
-        <span class="counter" data-from="<?php echo $this->getData('from'); ?>" data-to="<?php echo $numeric; ?>" data-time="<?php echo $this->getData('time'); ?>" data-delay="<?php echo $this->getData('delay'); ?>"><?php echo $numeric; ?></span>
+    <?php if ($to = $this->getTo()): ?>
+        <span class="counter" data-from="<?php echo $this->getFrom(); ?>" data-to="<?php echo $to; ?>" data-decimals="<?php echo $this->getDecimals(); ?>" data-duration="<?php echo $this->getDuration(); ?>" data-options='<?php echo $this->getOptions(); ?>'>0</span>
+    <?php endif; ?>
+
+    <?php if ($suffix = $this->getSuffix()): ?>
+        <span class="suffix"><?php echo $suffix; ?></span>
     <?php endif; ?>
 
 </span>
 
 <span class="forkel_counter_alert">
     <span class="alert warning">
-            <?php echo $this->__('Something is wrong. Probably jQuery is not loaded or has a conflict with another library.'); ?>
+            <?php echo $this->__('Something is wrong here. Probably countUp.min.js is not loaded or has a conflict with another library.'); ?>
     </span>
 </span>

@@ -13,7 +13,7 @@
 <config>
     <modules>
         <Forkel_Counter>
-            <version>1.0.1</version>
+            <version>1.1.0</version>
         </Forkel_Counter>
     </modules>
     <global>
@@ -49,6 +49,9 @@
     </frontend>
     <default>
         <forkel_counter>
+            <general>
+                <options>{ "separator" : ",", "decimal" : ".", "useEasing" : true, "useGrouping" : true }</options>
+            </general>
             <css>
                 <default>1</default>
                 <font_awesome>1</font_awesome>

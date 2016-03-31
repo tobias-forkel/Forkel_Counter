@@ -20,6 +20,7 @@ class Forkel_Counter_Block_Base extends Mage_Core_Block_Template
      * Get the numeric for the counter
      * or explode the string with all options, like  "collection:catalog/product;from:-14days;to:yesterday".
      *
+     * @param string $key Access key from array
      * @return mixed
      */
     protected function getFilter($key)
