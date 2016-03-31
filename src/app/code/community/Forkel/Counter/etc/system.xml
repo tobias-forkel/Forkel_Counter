@@ -89,7 +89,7 @@
                             <show_in_store>1</show_in_store>
                             <comment><![CDATA[
                                 <p>
-                                    <div>Load Font Awesome from CDN in front-end. Disable if a Font Awesome file is already loaded.</div>
+                                    <div>Load Font Awesome from CDN in front-end. Disable if it's already loaded in your theme.</div>
                                 </p>
                             ]]></comment>
                         </font_awesome>
