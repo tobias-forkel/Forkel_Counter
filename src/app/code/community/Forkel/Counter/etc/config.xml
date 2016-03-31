@@ -57,8 +57,7 @@
                 <font_awesome>1</font_awesome>
             </css>
             <js>
-                <jquery>1</jquery>
-                <waypoints>1</waypoints>
+                <default>1</default>
             </js>
         </forkel_counter>
     </default>

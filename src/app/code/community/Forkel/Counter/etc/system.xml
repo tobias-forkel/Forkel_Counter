@@ -74,7 +74,7 @@
                             <show_in_store>1</show_in_store>
                             <comment><![CDATA[
                                 <p>
-                                    <div>Load module CSS <i>css/forkel/counter/counter.min.css</i> in front-end.</div>
+                                    <div>Load CSS <i>css/forkel/counter/counter.min.css</i> in front-end.</div>
                                 </p>
                             ]]></comment>
                         </default>
@@ -116,7 +116,7 @@
                             <show_in_store>1</show_in_store>
                             <comment><![CDATA[
                                 <p>
-                                    <div>Load module JavaScript <i>js/community/forkel/counter/init.min.js</i> and <i>js/community/forkel/counter/countUp.min.js</i> in front-end.</div>
+                                    <div>Load JavaScript <i>js/community/forkel/counter/init.min.js</i> and <i>js/community/forkel/counter/countUp.min.js</i> in front-end.</div>
                                 </p>
                             ]]></comment>
                         </default>
