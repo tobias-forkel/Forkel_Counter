@@ -32,11 +32,10 @@ A javascript fallback will display a warning message in case of JavaScript issue
 ```html
 collection:customer/customer,from:-30 days,to:now
 ```
-* Customizable in `app/design/frontend/base/default/template/forkel/counter/counter.phtml`.
-
 ```html
 collection:sales/order,from:March 12 2015,to:April 12 2015
 ```
+* Customizable in `app/design/frontend/base/default/template/forkel/counter/counter.phtml`.
 
 ## Usage
 Following parameters are available.
