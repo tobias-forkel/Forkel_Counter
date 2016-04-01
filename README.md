@@ -2,14 +2,14 @@
 Add a customizable counter that allows you to count up or down from any number. With a specific option like `collection:catalog/product,from:-30 days,to:now` you can get the size of a predefined collection. This module is using the class [CountUp](https://inorganik.github.io/countUp.js) that works without a JavaScript framework.
 
 ### Front-End
-![Forkel Counter - Frontend](http://www.tobiasforkel.de/public/magento/forkel_counter/version/1.0/screenshots/frontend/frontend_cms.gif)
+![Forkel Counter - Frontend](http://www.tobiasforkel.de/public/magento/forkel_counter/version/1.1/screenshots/frontend/frontend_cms.gif)
 
 A javascript fallback will display a warning message in case of JavaScript issues.
 
-![Forkel Counter - Frontend](http://www.tobiasforkel.de/public/magento/forkel_counter/version/1.0/screenshots/frontend/frontend_fallback.jpg)
+![Forkel Counter - Frontend](http://www.tobiasforkel.de/public/magento/forkel_counter/version/1.1/screenshots/frontend/frontend_fallback.jpg)
 
 ### Admin Panel
-![Forkel Counter - Backend](http://www.tobiasforkel.de/public/magento/forkel_counter/version/1.0/screenshots/backend/backend_system.jpg)
+![Forkel Counter - Backend](http://www.tobiasforkel.de/public/magento/forkel_counter/version/1.1/screenshots/backend/backend_system.jpg)
 
 ## Installation
 1. Pull the code.
