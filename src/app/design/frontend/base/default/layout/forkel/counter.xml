@@ -15,7 +15,7 @@
     <forkel_counter_css>
         <reference name="head">
             <action method="addCss" ifconfig="forkel_counter/css/default">
-                <stylesheet>css/forkel/counter/counter.css</stylesheet>
+                <stylesheet>css/forkel/counter/counter.min.css</stylesheet>
             </action>
             <action method="addLinkRel" ifconfig="forkel_counter/css/font_awesome">
                 <rel>stylesheet</rel>
@@ -25,12 +25,10 @@
     </forkel_counter_css>
 
     <forkel_counter_js>
-        <reference name="head">
-            <action method="addJs" ifconfig="forkel_counter/js/jquery"><script>community/forkel/counter/jquery.load.min.js</script></action>
-            <action method="addJs" ifconfig="forkel_counter/js/waypoints"><script>community/forkel/counter/jquery.waypoints.min.4.0.0.js</script></action>
-            <action method="addJs"><script>community/forkel/counter/jquery.counterup.min.custom.js</script></action>
+        <reference name="head" ifconfig="forkel_counter/css/font_awesome">
+            <action method="addJs"><script>community/forkel/counter/countUp.min.js</script></action>
         </reference>
-        <reference name="head">
+        <reference name="head" ifconfig="forkel_counter/css/font_awesome">
             <action method="addJs"><script>community/forkel/counter/init.min.js</script></action>
         </reference>
     </forkel_counter_js>
@@ -39,26 +37,34 @@
         <reference name="right">
             <block type="forkel_counter/frontend_counter" name="forkel_counter_frontend_counter" after="catalog.compare.sidebar">
                 <action method="setData">
-                    <name>icon</name><value></value>
+                    <name>className</name><value>forkel_class</value>
+                </action>
+                <action method="setData">
+                    <name>icon</name><value>fa-umbrella</value>
                 </action>
                 <action method="setData">
                     <name>prefix</name><value>$</value>
                 </action>
                 <action method="setData">
+                    <name>suffix</name><value>per month</value>
+                </action>
+                <action method="setData">
                     <name>from</name><value>0</value>
                 </action>
                 <action method="setData">
-                    <name>to</name><value>1,323</value>
+                    <name>to</name><value>1999</value>
                 </action>
                 <action method="setData">
-                    <name>time</name><value>2000</value>
+                    <name>decimals</name><value>0</value>
                 </action>
                 <action method="setData">
-                    <name>delay</name><value>20</value>
+                    <name>duration</name><value>5</value>
+                </action>
+                <action method="setData">
+                    <name>options</name><value>{ "separator" : ",", "decimal" : ".", "useEasing" : true, "useGrouping" : true }</value>
                 </action>
             </block>
         </reference>
     </forkel_counter>
 
 </layout>
-

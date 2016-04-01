@@ -1,10 +1,10 @@
 # Forkel Counter
-Add a customizable counter that allows you to count up to any numeric value. With a specific option like `collection:catalog/product,from:-30 days,to:now` you can get the size of a predefined collection. This module is using a [custom version](https://github.com/tobias-forkel/Counter-Up/tree/feature/counter_settings_from_data_attribute) of [Counter-Up](https://github.com/bfintal/Counter-Up) and the latest version of [Waypoints](http://imakewebthings.com/waypoints) and [jQuery](https://jquery.com/download/).
+Add a customizable counter that allows you to count up or down from any number. With a specific option like `collection:catalog/product,from:-30 days,to:now` you can get the size of a predefined collection. This module is using the class [CountUp](https://inorganik.github.io/countUp.js) that works without a JavaScript framework.
 
 ### Front-End
-![Forkel Counter - Frontend](http://www.tobiasforkel.de/public/magento/forkel_counter/version/1.0/screenshots/frontend/frontend_cms.jpg)
+![Forkel Counter - Frontend](http://www.tobiasforkel.de/public/magento/forkel_counter/version/1.0/screenshots/frontend/frontend_cms.gif)
 
-It will display a simple message in case of issues with other JavaScript libraries.
+A javascript fallback will display a warning message in case of JavaScript issues.
 
 ![Forkel Counter - Frontend](http://www.tobiasforkel.de/public/magento/forkel_counter/version/1.0/screenshots/frontend/frontend_fallback.jpg)
 
@@ -15,33 +15,44 @@ It will display a simple message in case of issues with other JavaScript librari
 1. Pull the code.
 2. Copy the code in your document root directory where the `/app/` folder is located.
 4. Clear all caches and reload your Admin Panel to run the installation process.
-5. After installation you should see a new menu item `Forkel Counter` inside of `System > Configuration > General`.
+5. After installation you should see a new menu item `Forkel Counter` inside of `System > Configuration`.
 
 ## Features
-* Blocks available for CMS pages and XML layout files.
-* Disable or enable `Font Awesome`, `jQuery` and `Waypoints` in `System > Configuration > General` to prevent conflicts or use libraries coming from your own template.
-* Add a custom class name to display an `Front Awesome` icon. 
-* Add a prefix like `$` or `€`.
-* Set a numeric ( `3` or `0,00` ) from where the counter should start.
-* Set a numeric ( `2341` or `1999,95` ) where the counter should stop.
-* Set a duration in milliseconds.
-* Set a delay in milliseconds.
-* Set a collection like `sales/order` or `catalog/product` to count all its rows. You can add a filter to limit the result based on `created_at` and between two dates. For example: `collection:customer/customer,from:-30 days,to:now` or `collection:sales/order,from:March 12 2015,to:April 12 2015`
+* Blocks are available for CMS pages and XML layout files.
+* Disable or enable JavaScript and CSS in `System > Configuration > General > Forkel Counter` to prevent conflicts with your theme.
+* Display a `Front Awesome` icon. 
+* Display a custom prefix like `$` or `€`.
+* Display a custom suffix.
+* Set a number ( `-99` or `99` ) from where the counter should start.
+* Set a number ( `290` or `10000` ) where the counter should stop.
+* Set the amount of decimals.
+* Set the counter duration in seconds.
+* Override default options such as `{ "separator" : ",", "decimal" : ".", "useEasing" : true, "useGrouping" : true }`
+* Count rows from collections like `sales/order` or `catalog/product` in combination with a date filter. For example:
+```html
+collection:customer/customer,from:-30 days,to:now
+```
+* Customizable in `app/design/frontend/base/default/template/forkel/counter/counter.phtml`.
+
+```html
+collection:sales/order,from:March 12 2015,to:April 12 2015
+```
 
 ## Usage
-Following options are available.
+Following parameters are available.
 
 Option | Value | Description
 --- | --- | ---
-from | Numeric value | Start the counter
-to* | Numeric value |  Stop the counter
-time | Numeric value | Duration between start and stop in milliseconds
-delay | Numeric value | Delay per number in milliseconds
-prefix | Custom string | At the beginning of the counter
-icon | Class name | Set a custom icon based on `Font Awesome`
-className | Class name | Custom class name for each counter for your custom styles
+icon | String | Display any icon from [Font Awesome](https://fortawesome.github.io/Font-Awesome/icons/).
+prefix | String | Display a custom prefix like `$` or `€`.
+suffix | String | Display a custom suffix.
+from | Number | Set a number ( `-50` or `99` ) from where the counter should start.
+to `*` | Number |  Set a number ( `290` or `10000` ) where the counter should stop.
+decimals | Number  | Set the amount of decimals.
+duration | Decimal  | Set the counter duration in seconds.
+options | JSON  | Override [countUp](https://github.com/inorganik/CountUp.js) options such as `{ "separator" : ",", "decimal" : ".", "useEasing" : true, "useGrouping" : true }`
 
-The option `to` allows you to get the size of a collection. Following collections are available to use.
+`*` The parameter allows you to get the size of a collection. Following collections are available to use.
 
 Collection | Field | Syntax
 --- | --- | ---
@@ -50,14 +61,54 @@ catalog/product | Using field `created_at` to filter by datetime | `collection:c
 customer/customer | Using field `created_at` to filter by datetime | `collection:customer/customer,from:-90 days,to:-30 days`
 customer/session | Using field `login_at` to filter by datetime | `collection:customer/session,from:yesterday,to:now`
 
-Please see the examples how to setup a counter in CMS pages or XML files.
+Please find more examples below.
 
 ## Examples
-### Count a number from `0` to `999`.
+### All parameters combined
+#### - CMS
+```html
+{{block type="forkel_counter/frontend_counter" className="green" icon="fa-umbrella" prefix="$" suffix="per month" from="0" to="1999" decimals="0" duration="5" options='{ "separator" : ",", "decimal" : ".", "useEasing" : true, "useGrouping" : true }' name="forkel_counter"}}
+```
+#### - XML
+```xml
+<block type="forkel_counter/frontend_counter" name="forkel_counter_frontend_counter" after="-">
+    <action method="setData">
+        <name>className</name><value>forkel_class</value>
+    </action>
+    <action method="setData">
+        <name>icon</name><value>fa-umbrella</value>
+    </action>
+    <action method="setData">
+        <name>prefix</name><value>$</value>
+    </action>
+        <action method="setData">
+        <name>suffix</name><value>per month</value>
+    </action>
+    <action method="setData">
+        <name>from</name><value>0</value>
+    </action>
+    <action method="setData">
+        <name>to</name><value>1999</value>
+    </action>
+    <action method="setData">
+        <name>decimals</name><value>0</value>
+    </action>
+    <action method="setData">
+        <name>duration</name><value>5</value>
+    </action>
+    <action method="setData">
+        <name>options</name><value>{ "separator" : ",", "decimal" : ".", "useEasing" : true, "useGrouping" : true }</value>
+    </action>
+</block>
+```
+
+### Count a number from `0` to `999` in `5` seconds.
+#### - CMS
 
 ```html
-{{block type="forkel_counter/frontend_counter" from="0" to="9,999" time="5000" delay="20" name="forkel_counter"}}
+{{block type="forkel_counter/frontend_counter" from="0" to="999" duration="5" name="forkel_counter"}}
 ```
+#### - XML
 
 ```xml
 <block type="forkel_counter/frontend_counter" name="forkel_counter_frontend_counter" after="-">
@@ -65,21 +116,20 @@ Please see the examples how to setup a counter in CMS pages or XML files.
         <name>from</name><value>0</value>
     </action>
     <action method="setData">
-        <name>to</name><value>9,999</value>
+        <name>to</name><value>999</value>
     </action>
     <action method="setData">
-        <name>time</name><value>5000</value>
-    </action>
-    <action method="setData">
-        <name>delay</name><value>20</value>
+        <name>duration</name><value>5</value>
     </action>
 </block>
 ```
-### Count a collection starting from `0` with a prefix `$`. Display rows between the last 30 days and now.
+### Count a collection starting from `0` with a prefix `$`. Display the last 30 days.
+#### - CMS
 
 ```html
-{{block type="forkel_counter/frontend_counter" from="0" to="collection:sales/order,from:-30 days,to:now" time="3000" delay="20" name="forkel_counter"}}
+{{block type="forkel_counter/frontend_counter" prefix="$" from="0" to="collection:sales/order,from:-30 days,to:now" duration="5" name="forkel_counter"}}
 ```
+#### - XML
 
 ```xml
 <block type="forkel_counter/frontend_counter" name="forkel_counter_frontend_counter" after="-">
@@ -93,10 +143,7 @@ Please see the examples how to setup a counter in CMS pages or XML files.
         <name>to</name><value>collection:sales/order,from:-30 days,to:now</value>
     </action>
     <action method="setData">
-        <name>time</name><value>5000</value>
-    </action>
-    <action method="setData">
-        <name>delay</name><value>20</value>
+        <name>duration</name><value>5</value>
     </action>
 </block>
 ```
@@ -114,6 +161,13 @@ If you have any issues with this extension, open an issue on [Github](https://gi
 Follow me on [GitHub](https://github.com/tobias-forkel) and [Twitter](https://twitter.com/tobiasforkel).
 
 ## History
+===== 1.1.0 =====
+* Removed jQuery because I have replaced the counter plugin ( https://github.com/bfintal/Counter-Up ) with ( https://inorganik.github.io/countUp.js ) that allows you to count up and down without a JavaScript framework.
+* Removed [Waypoints](http://imakewebthings.com/waypoints/). Please add it to your theme manually.
+* Added new parameter `decimals` and `duration`.
+* Added default counter options in `System > Forkel Counter > General`
+* Added new parameter `options` that allows you to set different [CountUp](https://inorganik.github.io/countUp.js) settings for each counter.
+
 ===== 1.0.1 =====
 * Added optional option `className` for each counter block
 
